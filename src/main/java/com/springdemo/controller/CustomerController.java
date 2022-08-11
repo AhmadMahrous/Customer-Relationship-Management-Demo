@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,4 +34,45 @@ public class CustomerController {
 		
 		return "list-customer";
 	}
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model model) {
+		
+		// create modle attribute to bind the form data
+		Customer theCustomer = new Customer();
+		model.addAttribute("customer", theCustomer);
+		
+		return "customer-form";
+	}
+	
+	@PostMapping("/saveCustomer") // it's refer to action attribute in the form
+	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer ) {
+		
+		// save  the customer using our service
+		customerService.saveCustomer(theCustomer);
+		return "redirect:/customer/list";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

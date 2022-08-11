@@ -19,6 +19,12 @@
 			</div>
 		
 			<div id="container">
+				
+				<!-- Add new customer button -->
+				<input type="button" value="Add Customer"
+				 onclick="window.location.href='showFormForAdd'; return false;" /> <!-- so when we click the button it's call spring 
+				 																	controller mapping, shoFormForAdd -->
+			
 				<div id="content">
 					<!-- add our html tabel -->
 					<table>
