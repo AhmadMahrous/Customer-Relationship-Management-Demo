@@ -23,7 +23,7 @@ public class CustomerDAOImp implements CustomerDAO {
 	
 	
 	@Override
-	@Transactional // to manage beginning and ending of session
+	 
 	public List<Customer> getCustomers() {
 		
 		// get the current hibernate session
